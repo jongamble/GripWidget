@@ -34,7 +34,7 @@ function remChr($foo){
 
 $gwd = $_POST;
 foreach($gwd as $key => $val){
-	$gwd[$key] = remChr(sanitizeData($val));
+	$gwd[$key] = sanitizeData($val);
 }
 
 $gwd['zindex'] = onlyNumbers($gwd['zindex']);
@@ -46,15 +46,15 @@ $response .= "\t/* Registered Domain: ".$gwd['domainName']." */\n";
 $response .= "\tnew GPGS.Widget({\n";
 $response .= "\t\tregKey: '".regKeyCreation($gwd['domainName'])."',\n";
 $response .= "\t\tgrips: {\n";
-if(!empty($gwd['linkDualDurometer']) && validLink($gwd['linkDualDurometer'],$dn)){$response .= "\t\t\tdd: '".$gwd['linkDualDurometer']."',\n";}
-if(!empty($gwd['linkNDMC']) && validLink($gwd['linkNDMC'],$dn)){$response .= "\t\t\tndm: '".$gwd['linkNDMC']."',\n";}
-if(!empty($gwd['linkNDMCWO']) && validLink($gwd['linkNDMCWO'],$dn)){$response .= "\t\t\tndmw: '".$gwd['linkNDMCWO']."',\n";}
-if(!empty($gwd['linkTourVelvet']) && validLink($gwd['linkTourVelvet'],$dn)){$response .= "\t\t\ttv: '".$gwd['linkTourVelvet']."',\n";}
-if(!empty($gwd['linkTourVelvetBCT']) && validLink($gwd['linkTourVelvetBCT'],$dn)){$response .= "\t\t\ttvbct: '".$gwd['linkTourVelvetBCT']."',\n";}
-if(!empty($gwd['linkTourWrap2g']) && validLink($gwd['linkTourWrap2g'],$dn)){$response .= "\t\t\ttw2g: '".$gwd['linkTourWrap2g']."',\n";}
-if(!empty($gwd['linkVDR']) && validLink($gwd['linkVDR'],$dn)){$response .= "\t\t\tvdr: '".$gwd['linkVDR']."'',\n";}
-if(!empty($gwd['linkZgrip']) && validLink($gwd['linkZgrip'],$dn)){$response .= "\t\t\tzg: '".$gwd['linkZgrip']."',\n";}
-if(!empty($gwd['linkZgripPatriot']) && validLink($gwd['linkZgripPatriot'],$dn)){$response .= "\t\t\tzgp: '".$gwd['linkZgripPatriot']."',\n";}
+if(!empty($gwd['linkDualDurometer']) && validLink($gwd['linkDualDurometer'],$dn)){$response .= "\t\t\tdd: '".remChr($gwd['linkDualDurometer'])."',\n";}
+if(!empty($gwd['linkNDMC']) && validLink($gwd['linkNDMC'],$dn)){$response .= "\t\t\tndm: '".remChr($gwd['linkNDMC'])."',\n";}
+if(!empty($gwd['linkNDMCWO']) && validLink($gwd['linkNDMCWO'],$dn)){$response .= "\t\t\tndmw: '".remChr($gwd['linkNDMCWO'])."',\n";}
+if(!empty($gwd['linkTourVelvet']) && validLink($gwd['linkTourVelvet'],$dn)){$response .= "\t\t\ttv: '".remChr($gwd['linkTourVelvet'])."',\n";}
+if(!empty($gwd['linkTourVelvetBCT']) && validLink($gwd['linkTourVelvetBCT'],$dn)){$response .= "\t\t\ttvbct: '".remChr($gwd['linkTourVelvetBCT'])."',\n";}
+if(!empty($gwd['linkTourWrap2g']) && validLink($gwd['linkTourWrap2g'],$dn)){$response .= "\t\t\ttw2g: '".remChr($gwd['linkTourWrap2g'])."',\n";}
+if(!empty($gwd['linkVDR']) && validLink($gwd['linkVDR'],$dn)){$response .= "\t\t\tvdr: '".remChr($gwd['linkVDR'])."'',\n";}
+if(!empty($gwd['linkZgrip']) && validLink($gwd['linkZgrip'],$dn)){$response .= "\t\t\tzg: '".remChr($gwd['linkZgrip'])."',\n";}
+if(!empty($gwd['linkZgripPatriot']) && validLink($gwd['linkZgripPatriot'],$dn)){$response .= "\t\t\tzgp: '".remChr($gwd['linkZgripPatriot'])."',\n";}
 $response .= "\t\t},\n";
 if(!empty($gwd['displayBanner'])){$response .= "\t\tdispB: '".$gwd['displayBanner']."',\n";}
 if(!empty($gwd['linkNavigation'])){$response .= "\t\tlinkNav: '".$gwd['linkNavigation']."',\n";}
