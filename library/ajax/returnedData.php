@@ -28,7 +28,7 @@ function validLink($foo, $rab){
 	}
 }
 function remChr($foo){
-	$bar = preg_replace('!@#$%^&*()_+=-\'/.,;[]}{":?><|\\', '', $foo);
+	$bar = preg_replace('/[^\da-z]/i', '', $foo);
 	return $bar;
 }
 
