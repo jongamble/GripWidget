@@ -1,0 +1,69 @@
+* {@include box-sizing(border-box);font-family: helvetica, arial, sans-serif;}
+.container {
+	@include container;
+}
+
+.p {font-size:14px;}
+.empty {background:#FDBCBC;}
+// Left Side
+.widgetInputCont {
+	@include span-columns(8,12);
+}
+.basicWidget {
+
+}
+.fieldset {
+	border:none;
+	margin:0;
+	padding:0;
+}
+.label {
+	@include span-columns(5,12);
+	@extend .p;
+}
+.inputDomainName {
+	@include span-columns(7 omega, 12);
+	
+}
+.inputEmailAddress {
+	@extend .inputDomainName;
+}
+.inputDescription {
+	display:block;
+	clear:both;
+	font-size:11px;
+	color:#999;
+}
+.linkNavigation {
+	@extend .inputDomainName;
+}
+.gripLabel {
+	@include span-columns(6,12);
+	font-size:12px;
+}
+.inputGrip {
+	@include span-columns(6 omega, 12);
+	@include pie-clearfix;
+}
+
+.inputButtonText {
+	@extend .inputDomainName;
+}
+
+.zindex {
+	@extend .inputDomainName;
+}
+
+.generateCodeButton {
+	margin:0 auto;
+	width: 20%;
+	display:block;
+}
+//end Left Side
+
+
+
+// Right Side
+.previewWidgetCont {
+	@include span-columns(4 omega, 12);
+}
