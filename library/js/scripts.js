@@ -50,4 +50,8 @@ jQuery(document).ready(function($){
 		}
 		return false;
 	});
+	$('.advancedWidget').hide();
+	$('.advancedLink').on("click", function(){
+		$('.advancedWidget').slideToggle(500);
+	});
 });

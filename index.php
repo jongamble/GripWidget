@@ -25,6 +25,7 @@
 					<p class="inputDescription">Please provide a valid contact email address for the webmaster of the hosting website.</p>
 					<hr>
 					<input type="submit" name="submit" value="Generate Code" class="generateCodeButton">
+					<a href="javascript:void();" class="advancedLink">Click here for Advanced Settings</a>
 				</section>
 				<section class="advancedWidget">
 					<h2 class="h2">Advanced Settings</h2>
@@ -106,7 +107,7 @@
 			<div class="previewWidget"></div>
 			<h2 class="h2">Widget Code</h2>
 			<p class="p">Copy and paste this code into an HTML web page:</p>
-			<textarea name="widgetCodeBox" rows="20" cols="20" readonly="readonly" id="widgetCodeBox" class="widgetCodeBox" onclick="selectAll(this);" style="width:310px;">Blah Blah Blah</textarea>
+			<textarea name="widgetCodeBox" rows="20" cols="20" readonly="readonly" id="widgetCodeBox" class="widgetCodeBox" onclick="selectAll(this);" style="width:310px;"></textarea>
 		</aside>
 	</section>
 
