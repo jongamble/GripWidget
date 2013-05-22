@@ -96,8 +96,7 @@
 				</section> 
 				<section class="installNotes">
 					<h2 class="h2">Installation Notes</h2>
-					<p class="p">Certain blogs and social networking sites do not permit the execution of external JavaScript, so please check with your hosting company on their policies. If JavaScript cannot be run on the site where you are embedding the Ball Selection Guide Widget, the widget will not be rendered.</p>
-					<p class="p">This widget uses an embedded version (1.4.3) of jQuery. If you already load jQuery on your site, then check the box "Use Minimum Version" in Advance Settings to only load the widget code. The widget has been tested with jQuery 1.3.2 or greater.</p>
+					<p class="p">Certain blogs and social networking sites do not permit the execution of external JavaScript, so please check with your hosting company on their policies. If JavaScript cannot be run on the site where you are embedding the Grip Selection Widget, the widget will not be rendered.</p>
 				</section>
 			</form>
 		</article>
