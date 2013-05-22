@@ -28,10 +28,10 @@ jQuery(document).ready(function($){
 	 		grip_widget_data['linkVDR'] = $('#linkVDR').val();
 	 		grip_widget_data['linkZgrip'] = $('#linkZgrip').val();
 	 		grip_widget_data['linkZgripPatriot'] = $('#linkZgripPatriot').val();
-	 		grip_widget_data['displayBanner'] = $('#displayBanner').val();
+	 		grip_widget_data['displayBanner'] = $('#displayBanner').prop('checked');
 	 		grip_widget_data['linkNavigation'] = $('#linkNavigation').val();
 	 		grip_widget_data['linkButtonText'] = $('#linkButtonText').val();
-	 		grip_widget_data['hideEmailSub'] = $('#hideEmailSub').val();
+	 		grip_widget_data['hideEmailSub'] = $('#hideEmailSub').prop('checked');
 	 		grip_widget_data['zindex'] = $('#zindex').val();
 	 		
 			$.ajax({

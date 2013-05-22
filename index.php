@@ -35,6 +35,7 @@
 					<hr>
 					<label for="linkNavigation" class="label">Link Navigation:</label>
 					<select name="linkNavigation" id="linkNavigation" class="linkNavigation">
+						<option value=""></option>
 						<option value="newWindow">Launch a NEW WINDOW</option>
 						<option value="sameWindow">Stay in Same Window</option>
 					</select>

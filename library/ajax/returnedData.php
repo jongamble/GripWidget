@@ -20,47 +20,74 @@ function onlyNumbers($foo){
 	$bar = substr(ltrim($bar, '0'), 0, 6);
 	return $bar;
 }
-function validLink($foo, $rab){
-	if(strstr($foo, $rab)){
-		return true;
+function returnDomain($foo){
+	if((substr($foo,0,7) == 'http://') || (substr($foo,0,8) == 'https://')){
+		$bar = str_replace('https://','',$foo);
+		$bar = str_replace('http://','',$bar);
+		$bar = str_replace('www.','',$bar);
+		return $bar;
 	}else{
-		return false;
+		$bar = str_replace('www.','',$foo);
+		return $bar;
 	}
 }
-function remChr($foo){
-	$bar = preg_replace('/[^\da-z]/i', '', $foo);
-	return $bar;
-}
 
-$gwd = $_POST;
-foreach($gwd as $key => $val){
+
+foreach($_POST as $key => $val){
 	$gwd[$key] = sanitizeData($val);
 }
 
 $gwd['zindex'] = onlyNumbers($gwd['zindex']);
-$dn = $gwd['domainName'];
 
 $response = "<script type='text/javascript' src='//golfpride.com/js/bsgwidget.js'></script>\n";
 $response .= "<script type='text/javascript'>\n";
-$response .= "\t/* Registered Domain: ".$gwd['domainName']." */\n";
+$response .= "\t/* Registered Domain: ".returnDomain($gwd['domainName'])." */\n";
 $response .= "\tnew GPGS.Widget({\n";
-$response .= "\t\tregKey: '".regKeyCreation($gwd['domainName'])."',\n";
+$response .= "\t\tregKey: '".regKeyCreation(returnDomain($gwd['domainName']))."',\n";
 $response .= "\t\tgrips: {\n";
-if(!empty($gwd['linkDualDurometer']) && validLink($gwd['linkDualDurometer'],$dn)){$response .= "\t\t\tdd: '".remChr($gwd['linkDualDurometer'])."',\n";}
-if(!empty($gwd['linkNDMC']) && validLink($gwd['linkNDMC'],$dn)){$response .= "\t\t\tndm: '".remChr($gwd['linkNDMC'])."',\n";}
-if(!empty($gwd['linkNDMCWO']) && validLink($gwd['linkNDMCWO'],$dn)){$response .= "\t\t\tndmw: '".remChr($gwd['linkNDMCWO'])."',\n";}
-if(!empty($gwd['linkTourVelvet']) && validLink($gwd['linkTourVelvet'],$dn)){$response .= "\t\t\ttv: '".remChr($gwd['linkTourVelvet'])."',\n";}
-if(!empty($gwd['linkTourVelvetBCT']) && validLink($gwd['linkTourVelvetBCT'],$dn)){$response .= "\t\t\ttvbct: '".remChr($gwd['linkTourVelvetBCT'])."',\n";}
-if(!empty($gwd['linkTourWrap2g']) && validLink($gwd['linkTourWrap2g'],$dn)){$response .= "\t\t\ttw2g: '".remChr($gwd['linkTourWrap2g'])."',\n";}
-if(!empty($gwd['linkVDR']) && validLink($gwd['linkVDR'],$dn)){$response .= "\t\t\tvdr: '".remChr($gwd['linkVDR'])."'',\n";}
-if(!empty($gwd['linkZgrip']) && validLink($gwd['linkZgrip'],$dn)){$response .= "\t\t\tzg: '".remChr($gwd['linkZgrip'])."',\n";}
-if(!empty($gwd['linkZgripPatriot']) && validLink($gwd['linkZgripPatriot'],$dn)){$response .= "\t\t\tzgp: '".remChr($gwd['linkZgripPatriot'])."',\n";}
+	if(!empty($gwd['linkDualDurometer'])){
+		$response .= "\t\t\tdd: '".$gwd['linkDualDurometer']."',\n";
+	}
+	if(!empty($gwd['linkNDMC'])){
+		$response .= "\t\t\tndm: '".$gwd['linkNDMC']."',\n";
+	}
+	if(!empty($gwd['linkNDMCWO'])){
+		$response .= "\t\t\tndmw: '".$gwd['linkNDMCWO']."',\n";
+	}
+	if(!empty($gwd['linkTourVelvet'])){
+		$response .= "\t\t\ttv: '".$gwd['linkTourVelvet']."',\n";
+	}
+	if(!empty($gwd['linkTourVelvetBCT'])){
+		$response .= "\t\t\ttvbct: '".$gwd['linkTourVelvetBCT']."',\n";
+	}
+	if(!empty($gwd['linkTourWrap2g'])){
+		$response .= "\t\t\ttw2g: '".$gwd['linkTourWrap2g']."',\n";
+	}
+	if(!empty($gwd['linkVDR'])){
+		$response .= "\t\t\tvdr: '".$gwd['linkVDR']."'',\n";
+	}
+	if(!empty($gwd['linkZgrip'])){
+		$response .= "\t\t\tzg: '".$gwd['linkZgrip']."',\n";
+	}
+	if(!empty($gwd['linkZgripPatriot'])){
+		$response .= "\t\t\tzgp: '".$gwd['linkZgripPatriot']."',\n";
+	}
 $response .= "\t\t},\n";
-if(!empty($gwd['displayBanner'])){$response .= "\t\tdispB: '".$gwd['displayBanner']."',\n";}
-if(!empty($gwd['linkNavigation'])){$response .= "\t\tlinkNav: '".$gwd['linkNavigation']."',\n";}
-if(!empty($gwd['linkButtonText'])){$response .= "\t\tlinkText: '".$gwd['linkButtonText']."',\n";}
-if(!empty($gwd['hideEmailSub'])){$response .= "\t\thideEmail: '".$gwd['hideEmailSub']."',\n";}
-if(!empty($gwd['zindex'])){$response .= "\t\tzIn: '".$gwd['zindex']."'\n";}
+if(!empty($gwd['displayBanner'])){
+	$response .= "\t\tdispB: '".$gwd['displayBanner']."',\n";
+}
+if(!empty($gwd['linkNavigation'])){
+	$response .= "\t\tlinkNav: '".$gwd['linkNavigation']."',\n";
+}
+if(!empty($gwd['linkButtonText'])){
+	$response .= "\t\tlinkText: '".$gwd['linkButtonText']."',\n";
+}
+if(!empty($gwd['hideEmailSub'])){
+	$response .= "\t\thideEmail: '".$gwd['hideEmailSub']."',\n";
+}
+if(!empty($gwd['zindex'])){
+	$response .= "\t\tzIn: '".$gwd['zindex']."'\n";
+}
 $response .= "\t}).render();\n";
 $response .= "</script>";
 
